@@ -7,10 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-customer_sheet = openpyxl.load_workbook('dados_clientes.xlsx')
+customer_sheet = openpyxl.load_workbook('src/dados_clientes.xlsx')
 customer_page = customer_sheet['Sheet1']
 
-closed_sheet = openpyxl.load_workbook('planilha fechamento.xlsx')
+closed_sheet = openpyxl.load_workbook('src/planilha fechamento.xlsx')
 closed_page = closed_sheet['Sheet1']
 
 driver = webdriver.Chrome()
@@ -48,9 +48,9 @@ for line in customer_page.iter_rows(min_row=2, values_only=True):
         
         print([name, price, cpf, expiration_date, status, payment_date, method_payment])
         closed_page.append([name, price, cpf, expiration_date, status, payment_date, method_payment])
-        closed_sheet.save('planilha fechamento.xlsx')
+        closed_sheet.save('/planilha fechamento.xlsx')
     else:
         print([name, price, cpf, expiration_date, 'Pendente'])
 
         closed_page.append([name, price, cpf, expiration_date, 'Pendente'])
-        closed_sheet.save('planilha fechamento.xlsx')
+        closed_sheet.save('/planilha fechamento.xlsx')
