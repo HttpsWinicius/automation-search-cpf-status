@@ -48,9 +48,9 @@ for line in customer_page.iter_rows(min_row=2, values_only=True):
         
         print([name, price, cpf, expiration_date, status, payment_date, method_payment])
         closed_page.append([name, price, cpf, expiration_date, status, payment_date, method_payment])
-        closed_sheet.save('/planilha fechamento.xlsx')
+        closed_sheet.save('src/planilha fechamento.xlsx')
     else:
         print([name, price, cpf, expiration_date, 'Pendente'])
 
         closed_page.append([name, price, cpf, expiration_date, 'Pendente'])
-        closed_sheet.save('/planilha fechamento.xlsx')
+        closed_sheet.save('src/planilha fechamento.xlsx')
